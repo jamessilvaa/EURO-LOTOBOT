@@ -27,12 +27,12 @@ const App = () => {
   // Translations
   const translations = {
     pt: {
-      title: 'IA Previsão de Loteria',
+      title: 'EURO LOTOBOT',
       subtitle: 'Sistema Futurista de Previsão com Inteligência Artificial',
       login: 'Entrar',
-      loginTitle: 'Acesso do Usuário',
+      loginTitle: 'Acesso ao Sistema',
       adminTitle: 'Acesso Administrativo',
-      tokenPlaceholder: 'Digite seu token de acesso',
+      tokenPlaceholder: 'Digite seu token de acesso (usuário ou admin)',
       adminTokenPlaceholder: 'Digite o token de administrador',
       predict: 'Gerar Previsão',
       predictions: 'Minhas Previsões',
