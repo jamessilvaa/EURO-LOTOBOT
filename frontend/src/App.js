@@ -444,14 +444,19 @@ const App = () => {
 
           <div className="features">
             <div className="feature">
-              <div className="feature-icon">🤖</div>
+              <div className="feature-icon">🎯</div>
               <h3>{t.aiPowered}</h3>
               <p>{t.lstmModel}</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">🚀</div>
+              <div className="feature-icon">🔮</div>
               <h3>{t.futuristicDesign}</h3>
               <p>{t.realTimeAnalysis}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">🎲</div>
+              <h3>3 Loterias</h3>
+              <p>EuroMilhões, La Primitiva, El Gordo</p>
             </div>
           </div>
 
