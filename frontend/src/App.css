@@ -121,9 +121,33 @@ body {
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
+/* Robot Image */
+.robot-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.robot-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(0, 212, 255, 0.5);
+}
+
+.robot-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 80px rgba(0, 212, 255, 0.5);
+}
+
 .login-forms {
   display: flex;
-  gap: 40px;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
@@ -133,8 +157,16 @@ body {
   border-radius: 20px;
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 300px;
+  min-width: 400px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.features {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .login-form h2 {
