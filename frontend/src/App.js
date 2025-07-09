@@ -140,67 +140,66 @@ const App = () => {
     }
   }, []);
 
-  const handleLogin = async (e) => {
+  // Unified login handler
+  const handleUnifiedLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    try {
-      const response = await fetch(`${backendUrl}/api/predict`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${loginForm.token}`
-        },
-        body: JSON.stringify({
-          lottery_type: 'euromillones',
-          language: currentLanguage
-        })
-      });
+    const token = loginForm.token;
+    
+    // Check if it's admin token first
+    if (token === 'EUROADMIN252024@') {
+      try {
+        const response = await fetch(`${backendUrl}/api/admin/users`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
 
-      if (response.ok) {
-        localStorage.setItem('userToken', loginForm.token);
-        setIsAuthenticated(true);
-        setIsAdmin(false);
-        loadUserPredictions();
-        setSuccess('Login realizado com sucesso!');
-      } else {
-        setError('Token inválido ou expirado');
-      }
-    } catch (err) {
-      setError('Erro ao fazer login');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleAdminLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-
-    try {
-      const response = await fetch(`${backendUrl}/api/admin/users`, {
-        headers: {
-          'Authorization': `Bearer ${adminForm.token}`
+        if (response.ok) {
+          localStorage.setItem('adminToken', token);
+          setIsAuthenticated(true);
+          setIsAdmin(true);
+          setActiveTab('admin');
+          loadUsers();
+          setSuccess('Login administrativo realizado com sucesso!');
+        } else {
+          setError('Token administrativo inválido');
         }
-      });
-
-      if (response.ok) {
-        localStorage.setItem('adminToken', adminForm.token);
-        setIsAuthenticated(true);
-        setIsAdmin(true);
-        setActiveTab('admin');
-        loadUsers();
-        setSuccess('Login administrativo realizado com sucesso!');
-      } else {
-        setError('Token administrativo inválido');
+      } catch (err) {
+        setError('Erro ao fazer login administrativo');
       }
-    } catch (err) {
-      setError('Erro ao fazer login administrativo');
-    } finally {
-      setLoading(false);
+    } else {
+      // Try as user token
+      try {
+        const response = await fetch(`${backendUrl}/api/predict`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            lottery_type: 'euromillones',
+            language: currentLanguage
+          })
+        });
+
+        if (response.ok) {
+          localStorage.setItem('userToken', token);
+          setIsAuthenticated(true);
+          setIsAdmin(false);
+          loadUserPredictions();
+          setSuccess('Login realizado com sucesso!');
+        } else {
+          setError('Token inválido ou expirado');
+        }
+      } catch (err) {
+        setError('Erro ao fazer login');
+      }
     }
+    
+    setLoading(false);
   };
 
   const handleLogout = () => {
