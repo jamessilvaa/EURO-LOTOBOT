@@ -745,13 +745,22 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .login-forms {
-    flex-direction: column;
-    gap: 20px;
+  .robot-img {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .login-form {
+    min-width: 300px;
   }
   
   .features {
     flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature {
+    max-width: 300px;
   }
   
   .header-content {
@@ -777,6 +786,16 @@ body {
 }
 
 @media (max-width: 480px) {
+  .robot-img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .login-form {
+    min-width: auto;
+    width: 100%;
+  }
+  
   .main {
     padding: 20px 10px;
   }
@@ -789,11 +808,6 @@ body {
   
   .login-header {
     padding: 20px;
-  }
-  
-  .login-form {
-    min-width: auto;
-    width: 100%;
   }
   
   .title {
