@@ -74,12 +74,12 @@ const App = () => {
       realTimeAnalysis: 'Análise em Tempo Real'
     },
     es: {
-      title: 'IA Predicción de Lotería',
+      title: 'EURO LOTOBOT',
       subtitle: 'Sistema Futurista de Predicción con Inteligencia Artificial',
       login: 'Iniciar Sesión',
-      loginTitle: 'Acceso de Usuario',
+      loginTitle: 'Acceso al Sistema',
       adminTitle: 'Acceso Administrativo',
-      tokenPlaceholder: 'Ingrese su token de acceso',
+      tokenPlaceholder: 'Ingrese su token de acceso (usuario o admin)',
       adminTokenPlaceholder: 'Ingrese el token de administrador',
       predict: 'Generar Predicción',
       predictions: 'Mis Predicciones',
