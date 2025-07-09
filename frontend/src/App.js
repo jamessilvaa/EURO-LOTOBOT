@@ -423,7 +423,7 @@ const App = () => {
           <div className="login-forms">
             <div className="login-form">
               <h2>{t.loginTitle}</h2>
-              <form onSubmit={handleLogin}>
+              <form onSubmit={handleUnifiedLogin}>
                 <input
                   type="text"
                   placeholder={t.tokenPlaceholder}
@@ -436,22 +436,10 @@ const App = () => {
                 </button>
               </form>
             </div>
+          </div>
 
-            <div className="login-form">
-              <h2>{t.adminTitle}</h2>
-              <form onSubmit={handleAdminLogin}>
-                <input
-                  type="password"
-                  placeholder={t.adminTokenPlaceholder}
-                  value={adminForm.token}
-                  onChange={(e) => setAdminForm({...adminForm, token: e.target.value})}
-                  required
-                />
-                <button type="submit" disabled={loading}>
-                  {loading ? t.loading : t.login}
-                </button>
-              </form>
-            </div>
+          <div className="robot-image">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=" alt="Euro Lotobot" className="robot-img" />
           </div>
 
           <div className="features">
